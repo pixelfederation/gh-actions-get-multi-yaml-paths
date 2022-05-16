@@ -1,0 +1,35 @@
+name: 'build-test'
+
+on: # rebuild any PRs and main branch changes
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  build: # make sure build/ci work properly
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install
+      - run: npm run build
+
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+        id: e2e
+        with:
+          yamlFile: './test.yaml'
+          paths: |
+            containers.php.env.DB_HOST ;
+            containers.php.env.PHP_INI_APC_ENABLED ;
+            containers.nginx.env.NGINX_DIRECTIO | nginxDirectIO ;
+
+      # Use the output from the `e2e` step
+      - name: Get the output
+        run: |
+          echo "DB_HOST: ${{ steps.e2e.outputs.DB_HOST }}"
+          echo "PHP_INI_APC_ENABLED: ${{ steps.e2e.outputs.PHP_INI_APC_ENABLED }}"
+          echo "nginxDirectIO: ${{ steps.e2e.outputs.nginxDirectIO }}"

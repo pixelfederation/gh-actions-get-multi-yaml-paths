@@ -1,0 +1,21 @@
+name: 'Get multi YAML Paths'
+description: 'GitHub Action to get values of multiple paths'
+author: 'PF'
+inputs:
+  yamlFile:
+    required: true
+    description: 'YAML file to read'
+  failUndefinedValue:
+    required: false
+    description: 'Fail if any value is type of undefined (missing/wrong path).'
+    default: true
+  failObjectValue:
+    required: false
+    description: 'Fail if any value is type of an object and not primitive value.'
+    default: true
+  paths:
+    required: true
+    description: 'Paths to read'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

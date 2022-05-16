@@ -1,0 +1,11 @@
+containers:
+  nginx:
+    enabled: "true"
+    env:
+      NGINX_DIRECTIO: enabled
+      NGINX_CORS_CONF: "disabled"
+  php:
+    env:
+      DB_HOST: test-db
+      PHP_INI_APC_ENABLED: 1
+      PHP_INI_OPCACHE_ENABLE: 1

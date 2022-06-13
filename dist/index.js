@@ -82,7 +82,7 @@ function run() {
                 outputVarName = outputVarName
                     ? outputVarName
                     : keyPathParts[keyPathParts.length - 1];
-                let outputVarValue = (0, jsonpath_plus_1.JSONPath)({
+                const outputVarValue = (0, jsonpath_plus_1.JSONPath)({
                     path: `$.${keyPath}`,
                     json: yamlContentAsJSON,
                     wrap: false
@@ -104,7 +104,6 @@ function run() {
                             core.warning(`Path ${keyPath} value is an Object and not primitive value.`);
                         }
                     }
-                    outputVarValue = JSON.stringify(outputVarValue).trim();
                 }
                 core.setOutput(outputVarName, outputVarValue);
             }

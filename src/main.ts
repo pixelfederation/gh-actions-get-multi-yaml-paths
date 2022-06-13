@@ -54,7 +54,7 @@ async function run(): Promise<void> {
         ? outputVarName
         : keyPathParts[keyPathParts.length - 1]
 
-      let outputVarValue = JSONPath({
+      const outputVarValue = JSONPath({
         path: `$.${keyPath}`,
         json: yamlContentAsJSON,
         wrap: false
@@ -78,7 +78,6 @@ async function run(): Promise<void> {
             )
           }
         }
-        outputVarValue = JSON.stringify(outputVarValue).trim()
       }
 
       core.setOutput(outputVarName, outputVarValue)

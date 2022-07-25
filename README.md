@@ -33,8 +33,8 @@ GitHub Action to get values of multiple paths
       <path.to.another.value> | <optional_output_name>;
 
 - run: |
-  echo "${{steps.yaml.outputs.value}}"
-  echo "${{steps.yaml.outputs.optional_output_name}}"
+    echo "${{steps.yaml.outputs.value}}"
+    echo "${{steps.yaml.outputs.optional_output_name}}"
 ```
 
 <!-- end usage -->

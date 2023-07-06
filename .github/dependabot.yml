@@ -7,7 +7,7 @@ updates:
       time: "10:00"
       timezone: "Europe/Bratislava"
     groups:
-      all-dependencies:
+      all-actions-dependencies:
         patterns:
           - "*"
 
@@ -18,6 +18,6 @@ updates:
       time: "10:00"
       timezone: "Europe/Bratislava"
     groups:
-      all-dependencies:
+      all-npm-dependencies:
         patterns:
           - "*"

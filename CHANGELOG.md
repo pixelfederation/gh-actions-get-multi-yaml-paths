@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.3.0 - 2024-03-01 ]
+- Bump dependencies
+- Migrate to node 20
+
 ## [0.3.0 - 2023-03-13 ]
 - Update dependencies
 
